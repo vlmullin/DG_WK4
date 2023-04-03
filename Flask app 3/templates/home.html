@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+      body {background: linear-gradient(to bottom, #1A1A2E, #16213E);}</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand text-center mx-auto" href="#">Movie Recommendations</a>
+    </nav>
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form method="POST" action="/recommendations">
+            <div class="form-group">
+              <label for="user_id">User ID:</label>
+              <input type="text" id="user_id" name="user_id" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="genre">Genre:</label>
+              <select id="genre" name="genre" class="form-control">
+                {% for option in genre_options %}
+                <option value="{{ option }}">{{ option }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
